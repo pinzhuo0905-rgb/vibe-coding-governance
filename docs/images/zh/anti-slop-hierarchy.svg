@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" style="background:#090d16; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;">
+  <text x="500" y="42" text-anchor="middle" fill="#f8fafc" font-size="22" font-weight="700">六层去 AI 塑料味 (ANTI-SLOP) 治理架构栈</text>
+  <text x="500" y="68" text-anchor="middle" fill="#94a3b8" font-size="13">杜绝 AI 在缺少约束时无脑收敛至互联网平均高级感与通用模版</text>
+
+  <!-- Layer 1 -->
+  <rect x="120" y="100" width="760" height="55" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <rect x="120" y="100" width="180" height="55" rx="6" fill="#0284c7"/>
+  <text x="210" y="133" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">1. 产品上下文</text>
+  <text x="320" y="125" fill="#f8fafc" font-size="13" font-weight="600">PRODUCT_CONTEXT.md</text>
+  <text x="320" y="143" fill="#94a3b8" font-size="11">明确用户群体、使用频次、专业深度、高频核心任务与目标信息密度（中高密度）。</text>
+
+  <!-- Layer 2 -->
+  <rect x="120" y="165" width="760" height="55" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <rect x="120" y="165" width="180" height="55" rx="6" fill="#0369a1"/>
+  <text x="210" y="198" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">2. 设计人格 DNA</text>
+  <text x="320" y="190" fill="#f8fafc" font-size="13" font-weight="600">DESIGN_DNA.md 与原型系统</text>
+  <text x="320" y="208" fill="#94a3b8" font-size="11">选定“临床严谨型”工程原型；锁定排版梯级、单强调色克制策略与 1px 细边框空间关系。</text>
+
+  <!-- Layer 3 -->
+  <rect x="120" y="230" width="760" height="55" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <rect x="120" y="230" width="180" height="55" rx="6" fill="#075985"/>
+  <text x="210" y="263" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">3. 负向硬约束</text>
+  <text x="320" y="255" fill="#f8fafc" font-size="13" font-weight="600">UI_RULES.md (去 AI 味负向守则)</text>
+  <text x="320" y="273" fill="#94a3b8" font-size="11">绝对禁用紫蓝渐变、发光阴影、多层卡片套娃、胶囊按钮泛滥以及工具界面中的营销空白。</text>
+
+  <!-- Layer 4 -->
+  <rect x="120" y="295" width="760" height="55" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <rect x="120" y="295" width="180" height="55" rx="6" fill="#0f766e"/>
+  <text x="210" y="328" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">4. 机器 Design Token</text>
+  <text x="320" y="320" fill="#f8fafc" font-size="13" font-weight="600">design-tokens.json</text>
+  <text x="320" y="338" fill="#94a3b8" font-size="11">机器可读的严格设计基准：4px/8px 空间韵律、默认 6px 圆角，消灭任意魔法数值。</text>
+
+  <!-- Layer 5 -->
+  <rect x="120" y="360" width="760" height="55" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <rect x="120" y="360" width="180" height="55" rx="6" fill="#047857"/>
+  <text x="210" y="393" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">5. 页面完整状态规格</text>
+  <text x="320" y="385" fill="#f8fafc" font-size="13" font-weight="600">design/screens/*.md (10 种状态)</text>
+  <text x="320" y="403" fill="#94a3b8" font-size="11">强制规范默认、骨架屏加载、空数据、异常失败、禁用、溢出与海量数据集等 10 种状态。</text>
+
+  <!-- Layer 6 -->
+  <rect x="120" y="425" width="760" height="55" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <rect x="120" y="425" width="180" height="55" rx="6" fill="#10b981"/>
+  <text x="210" y="458" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">6. 真实浏览器渲染存证</text>
+  <text x="320" y="450" fill="#f8fafc" font-size="13" font-weight="600">多视口实机截图与 UI 静态检查器</text>
+  <text x="320" y="468" fill="#94a3b8" font-size="11">不轻信代码与编译通过；通过无头浏览器自动抓取桌面、平板与移动端真实渲染截图。</text>
+</svg>

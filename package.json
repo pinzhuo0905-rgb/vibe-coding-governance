@@ -1,7 +1,7 @@
 {
   "name": "vibe-coding-governance",
-  "version": "1.0.0",
-  "description": "Universal Vibe Coding Code Quality Governance & Autonomous Agent Enforcement Framework",
+  "version": "1.1.0",
+  "description": "Universal Vibe Coding Code & UI Design Governance Framework: Deterministic Clean Architecture, Strict Anti-Slop Discipline, and Autonomous Quality Gate Enforcement",
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
@@ -11,21 +11,25 @@
     "lint:fix": "biome lint --write src tests scripts",
     "typecheck": "tsc --noEmit",
     "arch:check": "node scripts/arch-check.mjs",
+    "ui:tokens": "node scripts/design-token-check.mjs",
+    "ui:lint": "node scripts/ui-review.mjs",
+    "ui:screenshot": "node scripts/screenshot.mjs",
     "test": "node --experimental-strip-types --test tests/unit/*.test.ts tests/integration/*.test.ts tests/governance/*.test.mjs",
     "test:unit": "node --experimental-strip-types --test tests/unit/*.test.ts",
     "test:integration": "node --experimental-strip-types --test tests/integration/*.test.ts",
     "test:governance": "node --test tests/governance/*.test.mjs",
     "security:check": "node scripts/security-check.mjs",
     "rule:sync": "node scripts/rule-sync.mjs",
-    "generate:diagrams": "node scripts/generate-diagrams.mjs && node scripts/generate-zh.mjs",
+    "generate:diagrams": "node scripts/generate-diagrams.mjs && node scripts/generate-zh.mjs && node scripts/generate-design-diagrams.mjs",
     "quality": "node scripts/verify-fix-loop.mjs"
   },
   "keywords": [
     "vibe-coding",
     "ai-agent",
     "code-quality",
-    "governance",
-    "static-analysis",
+    "ui-governance",
+    "anti-slop",
+    "design-tokens",
     "clean-architecture",
     "codex",
     "claude-code",
@@ -39,4 +43,3 @@
     "typescript": "^5.8.2"
   }
 }
-
