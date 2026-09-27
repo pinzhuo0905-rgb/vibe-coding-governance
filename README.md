@@ -1,5 +1,7 @@
 # Universal Vibe Coding Code Quality Governance & Autonomous Agent Enforcement Framework
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 [![Quality Gate](https://img.shields.io/badge/Quality%20Gate-100%25%20PASS-brightgreen.svg)](#unified-quality-command)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8%20Strict-blue.svg)](https://www.typescriptlang.org/)
 [![Linter & Formatter](https://img.shields.io/badge/Biome-Strict%20Enforced-60a5fa.svg)](https://biomejs.dev/)
@@ -264,4 +266,5 @@ A task is strictly considered **Done** only when:
 ## 9. License
 
 This project is licensed under the **MIT License**.
+
 

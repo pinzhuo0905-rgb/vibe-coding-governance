@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" style="background:#0f172a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Roboto,sans-serif;">
+  <defs>
+    <filter id="glow">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <text x="500" y="45" text-anchor="middle" fill="#f8fafc" font-size="24" font-weight="bold">多层自动化代码质量治理流水线</text>
+  <text x="500" y="72" text-anchor="middle" fill="#94a3b8" font-size="14">自动化过滤漏斗：从 AI 初始生成到合规的生产级 Pull Request</text>
+
+  <!-- Layer 1 -->
+  <g transform="translate(100, 105)" filter="url(#glow)">
+    <rect x="0" y="0" width="800" height="52" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="35" cy="26" r="16" fill="#0284c7"/>
+    <text x="35" y="32" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+    <text x="70" y="24" fill="#f8fafc" font-weight="bold" font-size="15">代码格式化层 (Biome / Spotless / Black / rustfmt)</text>
+    <text x="70" y="42" fill="#94a3b8" font-size="12">统一样式、缩进、折行与 Import 排序，消灭一切团队与 Agent 风格争议。</text>
+  </g>
+
+  <!-- Layer 2 -->
+  <g transform="translate(100, 170)" filter="url(#glow)">
+    <rect x="0" y="0" width="800" height="52" rx="10" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
+    <circle cx="35" cy="26" r="16" fill="#2563eb"/>
+    <text x="35" y="32" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+    <text x="70" y="24" fill="#f8fafc" font-weight="bold" font-size="15">静态 Linter 与反模式检测 (Biome / Ruff / ESLint / Clippy)</text>
+    <text x="70" y="42" fill="#94a3b8" font-size="12">检测无用死代码、认知复杂度过高 (>12)、危险隐式转换及变量作用域冲突。</text>
+  </g>
+
+  <!-- Layer 3 -->
+  <g transform="translate(100, 235)" filter="url(#glow)">
+    <rect x="0" y="0" width="800" height="52" rx="10" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+    <circle cx="35" cy="26" r="16" fill="#4f46e5"/>
+    <text x="35" y="32" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
+    <text x="70" y="24" fill="#f8fafc" font-weight="bold" font-size="15">严格类型检查层 (TypeScript Strict / Pyright / 编译器)</text>
+    <text x="70" y="42" fill="#94a3b8" font-size="12">开启严格空值检查，严禁使用 any 绕过、强行类型断言与未受检的属性索引。</text>
+  </g>
+
+  <!-- Layer 4 -->
+  <g transform="translate(100, 300)" filter="url(#glow)">
+    <rect x="0" y="0" width="800" height="52" rx="10" fill="#1e293b" stroke="#a855f7" stroke-width="2"/>
+    <circle cx="35" cy="26" r="16" fill="#9333ea"/>
+    <text x="35" y="32" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
+    <text x="70" y="24" fill="#f8fafc" font-weight="bold" font-size="15">架构边界约束与循环依赖检测 (arch-check)</text>
+    <text x="70" y="42" fill="#94a3b8" font-size="12">实时拦截层级倒置（如 Domain 反向依赖 Infra）与模块间的循环引用 (Cycles)。</text>
+  </g>
+
+  <!-- Layer 5 -->
+  <g transform="translate(100, 365)" filter="url(#glow)">
+    <rect x="0" y="0" width="800" height="52" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="2"/>
+    <circle cx="35" cy="26" r="16" fill="#db2777"/>
+    <text x="35" y="32" text-anchor="middle" fill="#fff" font-weight="bold">5</text>
+    <text x="70" y="24" fill="#f8fafc" font-weight="bold" font-size="15">安全审计、密钥扫描与异常契约 (security-check)</text>
+    <text x="70" y="42" fill="#94a3b8" font-size="12">扫描硬编码 API Token / 密码，强制禁止空 catch 块与静默 return null 掩盖问题。</text>
+  </g>
+
+  <!-- Layer 6 -->
+  <g transform="translate(100, 430)" filter="url(#glow)">
+    <rect x="0" y="0" width="800" height="52" rx="10" fill="#1e293b" stroke="#34d399" stroke-width="2"/>
+    <circle cx="35" cy="26" r="16" fill="#059669"/>
+    <text x="35" y="32" text-anchor="middle" fill="#fff" font-weight="bold">6</text>
+    <text x="70" y="24" fill="#f8fafc" font-weight="bold" font-size="15">自动化测试套件 (单元测试、领域约束与回归测试)</text>
+    <text x="70" y="42" fill="#94a3b8" font-size="12">全量验证业务不变性与边界条件，确保新增代码不破坏既有系统的任何历史功能。</text>
+  </g>
+
+  <!-- Layer 7 Gate -->
+  <g transform="translate(100, 495)" filter="url(#glow)">
+    <rect x="0" y="0" width="800" height="60" rx="10" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+    <circle cx="35" cy="30" r="16" fill="#10b981"/>
+    <text x="35" y="36" text-anchor="middle" fill="#fff" font-weight="bold">7</text>
+    <text x="70" y="27" fill="#a7f3d0" font-weight="bold" font-size="16">质量门禁全绿 → 允许提交 COMMIT 并发起 PULL REQUEST</text>
+    <text x="70" y="47" fill="#6ee7b7" font-size="12">自动化 CI 验证全部通过，代码具备高可读性、高可测性与高工程韧性，随时可交付上线。</text>
+  </g>
+</svg>

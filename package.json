@@ -17,7 +17,7 @@
     "test:governance": "node --test tests/governance/*.test.mjs",
     "security:check": "node scripts/security-check.mjs",
     "rule:sync": "node scripts/rule-sync.mjs",
-    "generate:diagrams": "node scripts/generate-diagrams.mjs",
+    "generate:diagrams": "node scripts/generate-diagrams.mjs && node scripts/generate-zh.mjs",
     "quality": "node scripts/verify-fix-loop.mjs"
   },
   "keywords": [
@@ -39,3 +39,4 @@
     "typescript": "^5.8.2"
   }
 }
+
