@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" style="background:#0f172a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <linearGradient id="badGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#991b1b" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="goodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="45" text-anchor="middle" fill="#f8fafc" font-size="24" font-weight="bold">VIBE CODING PARADIGM SHIFT</text>
+  <text x="500" y="72" text-anchor="middle" fill="#94a3b8" font-size="14">From Fragile Patch-on-Patch Chaos to Governed Engineering Resilience</text>
+
+  <!-- Left Box: Uncontrolled Chaos -->
+  <rect x="40" y="100" width="430" height="380" rx="16" fill="url(#badGrad)" stroke="#ef4444" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="60" y="120" width="390" height="35" rx="8" fill="#ef4444"/>
+  <text x="255" y="143" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">UNCONTROLLED VIBE CODING (CHAOS)</text>
+
+  <g transform="translate(65, 175)" font-size="13" fill="#fca5a5">
+    <rect x="0" y="0" width="380" height="38" rx="6" fill="#1e293b" stroke="#7f1d1d"/>
+    <text x="20" y="24">Human Prompt → AI Generates Code</text>
+
+    <path d="M 190 38 L 190 55" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
+    
+    <rect x="0" y="55" width="380" height="38" rx="6" fill="#1e293b" stroke="#7f1d1d"/>
+    <text x="20" y="79">AI Patches Directly into Existing Files</text>
+
+    <path d="M 190 93 L 190 110" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
+
+    <rect x="0" y="110" width="380" height="38" rx="6" fill="#1e293b" stroke="#7f1d1d"/>
+    <text x="20" y="134">Code Runs ("It Works on My Machine")</text>
+
+    <path d="M 190 148 L 190 165" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
+
+    <rect x="0" y="165" width="380" height="110" rx="8" fill="#450a0a" stroke="#dc2626"/>
+    <text x="20" y="190" fill="#fecaca" font-weight="bold">⚠️ Inevitable Systemic Degradation:</text>
+    <text x="35" y="212" fill="#fca5a5" font-size="12">• God classes &amp; 5,000-line monolithic files</text>
+    <text x="35" y="230" fill="#fca5a5" font-size="12">• Circular dependencies &amp; hidden state mutations</text>
+    <text x="35" y="248" fill="#fca5a5" font-size="12">• Fragile patches causing cascading regressions</text>
+    <text x="35" y="266" fill="#fca5a5" font-size="12">• Silent catch blocks &amp; unchecked technical debt</text>
+  </g>
+
+  <!-- Right Box: Governed Engineering -->
+  <rect x="530" y="100" width="430" height="380" rx="16" fill="url(#goodGrad)" stroke="#10b981" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="550" y="120" width="390" height="35" rx="8" fill="#10b981"/>
+  <text x="745" y="143" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">GOVERNED VIBE CODING (ENGINEERING)</text>
+
+  <g transform="translate(555, 175)" font-size="13" fill="#6ee7b7">
+    <rect x="0" y="0" width="380" height="38" rx="6" fill="#1e293b" stroke="#064e3b"/>
+    <text x="20" y="24">Human Prompt + AGENTS.md Constitution</text>
+
+    <path d="M 190 38 L 190 55" stroke="#10b981" stroke-width="2"/>
+    
+    <rect x="0" y="55" width="380" height="38" rx="6" fill="#1e293b" stroke="#064e3b"/>
+    <text x="20" y="79">AI Searches Existing Modules &amp; Modifies Code</text>
+
+    <path d="M 190 93 L 190 110" stroke="#10b981" stroke-width="2"/>
+
+    <rect x="0" y="110" width="380" height="38" rx="6" fill="#1e293b" stroke="#064e3b"/>
+    <text x="20" y="134">Multi-Layer Quality Pipeline (6 Checks)</text>
+
+    <path d="M 190 148 L 190 165" stroke="#10b981" stroke-width="2"/>
+
+    <rect x="0" y="165" width="380" height="110" rx="8" fill="#064e3b" stroke="#059669"/>
+    <text x="20" y="190" fill="#a7f3d0" font-weight="bold">🛡️ Guaranteed Quality &amp; Resilience:</text>
+    <text x="35" y="212" fill="#6ee7b7" font-size="12">• Automated root-cause detection &amp; repair</text>
+    <text x="35" y="230" fill="#6ee7b7" font-size="12">• Strictly verified architectural boundaries</text>
+    <text x="35" y="248" fill="#6ee7b7" font-size="12">• Zero secret leaks &amp; zero unhandled errors</text>
+    <text x="35" y="266" fill="#6ee7b7" font-size="12">• Long-term sustainable speed without rot</text>
+  </g>
+</svg>

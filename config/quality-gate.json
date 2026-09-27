@@ -1,0 +1,59 @@
+{
+  "name": "Universal Vibe Coding Quality Gate",
+  "version": "1.0.0",
+  "enforcement": "blocking",
+  "metrics": {
+    "formatCheck": {
+      "required": true,
+      "maxViolations": 0
+    },
+    "lintCheck": {
+      "required": true,
+      "maxErrors": 0,
+      "maxWarnings": 0
+    },
+    "typeCheck": {
+      "required": true,
+      "strict": true,
+      "maxErrors": 0
+    },
+    "architectureCheck": {
+      "required": true,
+      "maxCircularDependencies": 0,
+      "maxLayerViolations": 0,
+      "allowedLayerDependencies": {
+        "presentation": [
+          "application"
+        ],
+        "application": [
+          "domain"
+        ],
+        "infrastructure": [
+          "domain",
+          "application"
+        ],
+        "domain": []
+      }
+    },
+    "securityCheck": {
+      "required": true,
+      "maxCriticalVulnerabilities": 0,
+      "maxHardcodedSecrets": 0,
+      "disallowedPatterns": [
+        "catch\\s*\\([\\s\\S]*?\\)\\s*\\{\\s*\\}",
+        "except[\\s\\S]*?:\\s*pass",
+        "catch\\s*\\([\\s\\S]*?\\)\\s*\\{\\s*return\\s+null;?\\s*\\}"
+      ]
+    },
+    "testSuite": {
+      "required": true,
+      "minPassPercentage": 100,
+      "allowFailedTests": 0
+    },
+    "complexityLimits": {
+      "maxFunctionLines": 50,
+      "maxCyclomaticComplexity": 12,
+      "forbidGodFilesLines": 400
+    }
+  }
+}

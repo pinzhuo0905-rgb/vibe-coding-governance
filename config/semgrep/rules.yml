@@ -1,0 +1,35 @@
+rules:
+  - id: no-empty-catch-block
+    languages: [javascript, typescript, java, csharp]
+    message: "Empty catch blocks silently swallow errors and are strictly forbidden by Vibe Coding Governance."
+    severity: ERROR
+    patterns:
+      - pattern: |
+          catch ($ERR) { }
+
+  - id: no-catch-return-null
+    languages: [javascript, typescript, java, csharp]
+    message: "Returning null in a catch block hides failures without a distinct error contract."
+    severity: ERROR
+    patterns:
+      - pattern: |
+          catch ($ERR) {
+            return null;
+          }
+
+  - id: python-no-except-pass
+    languages: [python]
+    message: "Broad 'except: pass' hides failures and prevents local reasoning."
+    severity: ERROR
+    patterns:
+      - pattern: |
+          except:
+              pass
+
+  - id: no-hardcoded-secret-assignment
+    languages: [javascript, typescript, python, java, go]
+    message: "Hardcoded secret or token assignment detected. Use environment variables or secret managers."
+    severity: ERROR
+    patterns:
+      - pattern-regex: '(?i)(api[_-]?key|password|jwt[_-]?token|secret[_-]?key)\s*=\s*["\'][a-zA-Z0-9_\-]{16,}["\']'
+

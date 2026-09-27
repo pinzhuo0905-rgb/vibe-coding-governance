@@ -1,0 +1,57 @@
+name: Universal Quality Governance Gate
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-gate:
+    name: Multi-Tier Quality Verification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci || npm install
+
+      - name: 1. Verify Code Formatting
+        run: npm run format:check
+
+      - name: 2. Run Static Linter & Antipattern Analysis
+        run: npm run lint
+
+      - name: 3. Strict Type Check
+        run: npm run typecheck
+
+      - name: 4. Check Architecture Boundaries & Cycles
+        run: npm run arch:check
+
+      - name: 5. Security & Secret Detection Scan
+        run: npm run security:check
+
+      - name: 6. Execute Test Suites (Unit & Integration)
+        run: npm run test
+
+      - name: 7. Verify Multi-Agent Rule Synchronization
+        run: |
+          npm run rule:sync
+          git diff --exit-code || (echo "Rule drift detected! Run 'npm run rule:sync' and commit changes." && exit 1)
+
+      - name: Quality Gate Status
+        if: success()
+        run: echo "All Quality Gates passed successfully! Code is production ready."
+

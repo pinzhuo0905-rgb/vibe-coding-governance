@@ -1,0 +1,22 @@
+[extend]
+useDefault = true
+
+[whitelist]
+description = "Whitelist documentation & mock files"
+paths = [
+  '''docs/.*''',
+  '''tests/.*mock.*'''
+]
+
+[[rules]]
+id = "generic-api-key"
+description = "Generic API Key pattern"
+regex = '''(?i)(api[_-]?key|access[_-]?token|secret[_-]?key)['"]?\s*[:=]\s*['"][0-9a-zA-Z\-_]{20,}['"]'''
+secretGroup = 0
+entropy = 3.5
+
+[[rules]]
+id = "hardcoded-jwt"
+description = "Hardcoded JSON Web Token"
+regex = '''ey[A-Za-z0-9-_=]+\.ey[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*'''
+

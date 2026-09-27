@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" width="1000" height="580" style="background:#0f172a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <marker id="archArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <text x="500" y="45" text-anchor="middle" fill="#f8fafc" font-size="24" font-weight="bold">CLEAN ARCHITECTURAL BOUNDARIES &amp; DEPENDENCY RULES</text>
+  <text x="500" y="72" text-anchor="middle" fill="#94a3b8" font-size="14">The Inward Dependency Rule: Inner Domains Are Independent of Outer Mechanisms</text>
+
+  <!-- Concentric Rings / Layers -->
+  <circle cx="340" cy="310" r="210" fill="#1e293b" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,4"/>
+  <circle cx="340" cy="310" r="160" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="2"/>
+  <circle cx="340" cy="310" r="110" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+  <circle cx="340" cy="310" r="60" fill="#064e3b" stroke="#10b981" stroke-width="3"/>
+
+  <!-- Center Domain Text -->
+  <text x="340" y="306" text-anchor="middle" fill="#a7f3d0" font-weight="bold" font-size="14">DOMAIN</text>
+  <text x="340" y="324" text-anchor="middle" fill="#6ee7b7" font-size="10">Entities &amp; Rules</text>
+
+  <!-- Application Text -->
+  <text x="340" y="225" text-anchor="middle" fill="#67e8f9" font-weight="bold" font-size="13">APPLICATION LAYER</text>
+  <text x="340" y="242" text-anchor="middle" fill="#a5f3fc" font-size="10">Use Cases, DTOs &amp; Ports</text>
+
+  <!-- Infrastructure Text -->
+  <text x="340" y="170" text-anchor="middle" fill="#c4b5fd" font-weight="bold" font-size="13">INFRASTRUCTURE LAYER</text>
+  <text x="340" y="187" text-anchor="middle" fill="#ddd6fe" font-size="10">Repositories, DB &amp; Adapters</text>
+
+  <!-- Presentation Text -->
+  <text x="340" y="120" text-anchor="middle" fill="#93c5fd" font-weight="bold" font-size="13">PRESENTATION LAYER</text>
+  <text x="340" y="137" text-anchor="middle" fill="#bfdbfe" font-size="10">CLI, API &amp; Controllers</text>
+
+  <!-- Legend & Rules Card -->
+  <g transform="translate(600, 110)">
+    <rect x="0" y="0" width="360" height="400" rx="14" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <text x="180" y="35" text-anchor="middle" fill="#f8fafc" font-size="16" font-weight="bold">LEGAL DEPENDENCY DIRECTION</text>
+
+    <!-- Rule 1 -->
+    <g transform="translate(20, 65)">
+      <rect x="0" y="0" width="320" height="65" rx="8" fill="#0f172a" stroke="#10b981"/>
+      <text x="15" y="24" fill="#a7f3d0" font-weight="bold" font-size="13">1. Domain Layer (Purest Core)</text>
+      <text x="15" y="42" fill="#94a3b8" font-size="11">• ZERO external dependencies</text>
+      <text x="15" y="57" fill="#94a3b8" font-size="11">• Must NOT import Application or Infra</text>
+    </g>
+
+    <!-- Rule 2 -->
+    <g transform="translate(20, 145)">
+      <rect x="0" y="0" width="320" height="65" rx="8" fill="#0f172a" stroke="#06b6d4"/>
+      <text x="15" y="24" fill="#67e8f9" font-weight="bold" font-size="13">2. Application Layer (Orchestration)</text>
+      <text x="15" y="42" fill="#94a3b8" font-size="11">• Depends ONLY on Domain entities</text>
+      <text x="15" y="57" fill="#94a3b8" font-size="11">• Inverts dependencies via interfaces</text>
+    </g>
+
+    <!-- Rule 3 -->
+    <g transform="translate(20, 225)">
+      <rect x="0" y="0" width="320" height="65" rx="8" fill="#0f172a" stroke="#8b5cf6"/>
+      <text x="15" y="24" fill="#c4b5fd" font-weight="bold" font-size="13">3. Infrastructure Layer (Adapters)</text>
+      <text x="15" y="42" fill="#94a3b8" font-size="11">• Implements Application repository ports</text>
+      <text x="15" y="57" fill="#94a3b8" font-size="11">• Isolated from Presentation</text>
+    </g>
+
+    <!-- Rule 4 -->
+    <g transform="translate(20, 305)">
+      <rect x="0" y="0" width="320" height="75" rx="8" fill="#0f172a" stroke="#ef4444"/>
+      <text x="15" y="24" fill="#fca5a5" font-weight="bold" font-size="13">⛔ STRICTLY FORBIDDEN</text>
+      <text x="15" y="42" fill="#f87171" font-size="11">• Circular dependencies (A → B → A)</text>
+      <text x="15" y="57" fill="#f87171" font-size="11">• Presentation bypassing Application to DB</text>
+      <text x="15" y="70" fill="#f87171" font-size="11">• God Modules &gt; 400 lines</text>
+    </g>
+  </g>
+</svg>

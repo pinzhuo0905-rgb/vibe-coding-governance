@@ -1,0 +1,41 @@
+{
+  "name": "vibe-coding-governance",
+  "version": "1.0.0",
+  "description": "Universal Vibe Coding Code Quality Governance & Autonomous Agent Enforcement Framework",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "format": "biome format --write src tests scripts",
+    "format:check": "biome format src tests scripts",
+    "lint": "biome lint src tests scripts",
+    "lint:fix": "biome lint --write src tests scripts",
+    "typecheck": "tsc --noEmit",
+    "arch:check": "node scripts/arch-check.mjs",
+    "test": "node --experimental-strip-types --test tests/unit/*.test.ts tests/integration/*.test.ts tests/governance/*.test.mjs",
+    "test:unit": "node --experimental-strip-types --test tests/unit/*.test.ts",
+    "test:integration": "node --experimental-strip-types --test tests/integration/*.test.ts",
+    "test:governance": "node --test tests/governance/*.test.mjs",
+    "security:check": "node scripts/security-check.mjs",
+    "rule:sync": "node scripts/rule-sync.mjs",
+    "generate:diagrams": "node scripts/generate-diagrams.mjs",
+    "quality": "node scripts/verify-fix-loop.mjs"
+  },
+  "keywords": [
+    "vibe-coding",
+    "ai-agent",
+    "code-quality",
+    "governance",
+    "static-analysis",
+    "clean-architecture",
+    "codex",
+    "claude-code",
+    "cursor"
+  ],
+  "author": "Pingus <pinzhuo0905@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.13.9",
+    "typescript": "^5.8.2"
+  }
+}
