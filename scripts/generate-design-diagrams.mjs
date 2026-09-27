@@ -8,9 +8,9 @@ fs.mkdirSync(EN_DIR, { recursive: true });
 fs.mkdirSync(ZH_DIR, { recursive: true });
 
 function writeSvg(filename, enSvg, zhSvg) {
-  fs.writeFileSync(path.join(EN_DIR, filename), enSvg.trim() + "\n", "utf8");
-  fs.writeFileSync(path.join(ZH_DIR, filename), zhSvg.trim() + "\n", "utf8");
-  console.log("Generated diagram: " + filename + " (EN & ZH)");
+  fs.writeFileSync(path.join(EN_DIR, filename), `${enSvg.trim()}\n`, "utf8");
+  fs.writeFileSync(path.join(ZH_DIR, filename), `${zhSvg.trim()}\n`, "utf8");
+  console.log(`Generated diagram: ${filename} (EN & ZH)`);
 }
 
 // Diagram 1: Dual Governance Engine
