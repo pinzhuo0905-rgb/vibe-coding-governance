@@ -1,62 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" width="1000" height="580" style="background:#0f172a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Roboto,sans-serif;">
-  <text x="500" y="45" text-anchor="middle" fill="#f8fafc" font-size="24" font-weight="bold">整洁架构边界与合法依赖方向</text>
-  <text x="500" y="72" text-anchor="middle" fill="#94a3b8" font-size="14">单向向内依赖法则：核心领域模型绝对独立于外部细节、框架与数据库</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" style="background:#090d16; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;">
+  <text x="500" y="42" text-anchor="middle" fill="#f8fafc" font-size="22" font-weight="700">整洁架构依赖边界与防腐屏障</text>
+  <text x="500" y="68" text-anchor="middle" fill="#94a3b8" font-size="13">源码单向向内依赖律与零外层污染契约</text>
 
-  <!-- Concentric Rings -->
-  <circle cx="340" cy="310" r="210" fill="#1e293b" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,4"/>
-  <circle cx="340" cy="310" r="160" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="2"/>
-  <circle cx="340" cy="310" r="110" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
-  <circle cx="340" cy="310" r="60" fill="#064e3b" stroke="#10b981" stroke-width="3"/>
+  <!-- Layer 4: Presentation -->
+  <rect x="50" y="95" width="900" height="395" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+  <rect x="70" y="110" width="220" height="30" rx="6" fill="#1e293b"/>
+  <text x="180" y="130" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="700">表现层 (PRESENTATION)</text>
+  <text x="820" y="130" text-anchor="middle" fill="#64748b" font-size="11">控制台 CLI 指令 / HTTP 接口控制器</text>
 
-  <!-- Texts -->
-  <text x="340" y="306" text-anchor="middle" fill="#a7f3d0" font-weight="bold" font-size="13">领域层 DOMAIN</text>
-  <text x="340" y="324" text-anchor="middle" fill="#6ee7b7" font-size="10">业务实体与不变性规则</text>
-
-  <text x="340" y="225" text-anchor="middle" fill="#67e8f9" font-weight="bold" font-size="13">应用层 APPLICATION</text>
-  <text x="340" y="242" text-anchor="middle" fill="#a5f3fc" font-size="10">业务用例、DTO 与端口契约</text>
-
-  <text x="340" y="170" text-anchor="middle" fill="#c4b5fd" font-weight="bold" font-size="13">基础设施层 INFRASTRUCTURE</text>
-  <text x="340" y="187" text-anchor="middle" fill="#ddd6fe" font-size="10">持久化仓储、外部调用与安全工具</text>
-
-  <text x="340" y="120" text-anchor="middle" fill="#93c5fd" font-weight="bold" font-size="13">表现层 PRESENTATION</text>
-  <text x="340" y="137" text-anchor="middle" fill="#bfdbfe" font-size="10">CLI 入口、API 控制器与输入格式化</text>
-
-  <!-- Legend & Rules Card -->
-  <g transform="translate(600, 110)">
-    <rect x="0" y="0" width="360" height="400" rx="14" fill="#1e293b" stroke="#334155" stroke-width="2"/>
-    <text x="180" y="35" text-anchor="middle" fill="#f8fafc" font-size="16" font-weight="bold">单向合法依赖规则</text>
-
-    <!-- Rule 1 -->
-    <g transform="translate(20, 65)">
-      <rect x="0" y="0" width="320" height="65" rx="8" fill="#0f172a" stroke="#10b981"/>
-      <text x="15" y="24" fill="#a7f3d0" font-weight="bold" font-size="13">1. 领域层 Domain (纯净核心)</text>
-      <text x="15" y="42" fill="#94a3b8" font-size="11">• 零外部依赖、零第三方框架引用</text>
-      <text x="15" y="57" fill="#94a3b8" font-size="11">• 严禁直接依赖 Application 或 Infra</text>
-    </g>
-
-    <!-- Rule 2 -->
-    <g transform="translate(20, 145)">
-      <rect x="0" y="0" width="320" height="65" rx="8" fill="#0f172a" stroke="#06b6d4"/>
-      <text x="15" y="24" fill="#67e8f9" font-weight="bold" font-size="13">2. 应用层 Application (用例编排)</text>
-      <text x="15" y="42" fill="#94a3b8" font-size="11">• 仅依赖 Domain 纯业务实体</text>
-      <text x="15" y="57" fill="#94a3b8" font-size="11">• 通过 Port 接口反转对基础设施的依赖</text>
-    </g>
-
-    <!-- Rule 3 -->
-    <g transform="translate(20, 225)">
-      <rect x="0" y="0" width="320" height="65" rx="8" fill="#0f172a" stroke="#8b5cf6"/>
-      <text x="15" y="24" fill="#c4b5fd" font-weight="bold" font-size="13">3. 基础设施层 Infrastructure (技术适配)</text>
-      <text x="15" y="42" fill="#94a3b8" font-size="11">• 实现应用层定义的 Repository 端口</text>
-      <text x="15" y="57" fill="#94a3b8" font-size="11">• 与表现层 Presentation 保持物理隔离</text>
-    </g>
-
-    <!-- Rule 4 -->
-    <g transform="translate(20, 305)">
-      <rect x="0" y="0" width="320" height="75" rx="8" fill="#0f172a" stroke="#ef4444"/>
-      <text x="15" y="24" fill="#fca5a5" font-weight="bold" font-size="13">⛔ 严格禁用的架构反模式</text>
-      <text x="15" y="42" fill="#f87171" font-size="11">• 循环依赖 (A → B → A)</text>
-      <text x="15" y="57" fill="#f87171" font-size="11">• 表现层越过用例层直接查询数据库</text>
-      <text x="15" y="70" fill="#f87171" font-size="11">• 出现超过 400 行的代码巨石文件 (God File)</text>
-    </g>
+  <!-- Layer 3: Infrastructure & Application -->
+  <rect x="80" y="155" width="840" height="315" rx="10" fill="#162032" stroke="#334155" stroke-width="1.5"/>
+  
+  <!-- Left Side: Infrastructure -->
+  <rect x="100" y="175" width="380" height="275" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="1.5"/>
+  <rect x="100" y="175" width="380" height="32" rx="8" fill="#0284c7"/>
+  <text x="290" y="196" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">基础设施层 (INFRASTRUCTURE)</text>
+  <g transform="translate(120, 230)" font-size="11" fill="#cbd5e1">
+    <text y="0">• InMemoryRuleRepository (实现应用层端口)</text>
+    <text y="24">• InMemoryAuditLogRepository (审计存储实现)</text>
+    <text y="48">• TokenMasker (敏感密钥脱敏安全器)</text>
+    <text y="72">• 外部客户端、文件系统与适配器</text>
+    <text y="105" fill="#f59e0b" font-weight="600">契约: 倒置依赖应用层接口，严禁直接依赖表现层</text>
+    <text y="125" fill="#94a3b8">任何越层违规导入将直接导致门禁拦截阻断。</text>
   </g>
+
+  <!-- Right Side: Application -->
+  <rect x="520" y="175" width="380" height="275" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="520" y="175" width="380" height="32" rx="8" fill="#047857"/>
+  <text x="710" y="196" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">应用层 (APPLICATION USE CASES)</text>
+  
+  <g transform="translate(540, 225)" font-size="11" fill="#cbd5e1">
+    <text y="0">• EvaluateQualityGateUseCase (质量门禁评估用例)</text>
+    <text y="20">• RegisterRuleUseCase (规则注册业务用例)</text>
+    <text y="40">• 仓储端口接口 (RuleRepository, AuditLogRepo)</text>
+    <text y="60">• 数据传输对象: EvaluateQualityRequestDto 等</text>
+  </g>
+
+  <!-- Innermost Core: Domain Layer -->
+  <rect x="540" y="315" width="340" height="120" rx="6" fill="#090d16" stroke="#10b981" stroke-width="2"/>
+  <text x="710" y="338" text-anchor="middle" fill="#10b981" font-size="12" font-weight="700">★ 领域层核心 (DOMAIN LAYER)</text>
+  <g transform="translate(555, 362)" font-size="10" fill="#f8fafc">
+    <text y="0">• 领域实体: Rule (质量规则), EvaluationResult</text>
+    <text y="18">• 值对象: MetricThreshold, Severity (严苛等级)</text>
+    <text y="36">• 领域专属异常: InvalidRuleDefinitionError 等</text>
+    <text y="54" fill="#38bdf8" font-weight="600">对外层具有零依赖 (纯粹 TypeScript 原生逻辑)</text>
+  </g>
+
+  <!-- Inward Arrow -->
+  <path d="M 480 300 L 520 300" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4"/>
+  <text x="500" y="290" text-anchor="middle" fill="#38bdf8" font-size="10">实现接口</text>
 </svg>

@@ -1,79 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" style="background:#0f172a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
-  <defs>
-    <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="50%" stop-color="#8b5cf6"/>
-      <stop offset="100%" stop-color="#10b981"/>
-    </linearGradient>
-    <filter id="glow">
-      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
-    </filter>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" style="background:#090d16; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <text x="500" y="42" text-anchor="middle" fill="#f8fafc" font-size="22" font-weight="700">AUTOMATED QUALITY GOVERNANCE PIPELINE</text>
+  <text x="500" y="68" text-anchor="middle" fill="#94a3b8" font-size="13">Multi-Tier Continuous Quality Gate Enforced Before Pull Request Merge</text>
 
-  <text x="500" y="45" text-anchor="middle" fill="#f8fafc" font-size="24" font-weight="bold">THE MULTI-LAYER QUALITY GOVERNANCE PIPELINE</text>
-  <text x="500" y="72" text-anchor="middle" fill="#94a3b8" font-size="14">Automated Verification Funnel: From AI Generation to Verified Production PR</text>
+  <!-- 6 Step Pipeline Flow -->
+  <g transform="translate(30, 110)">
+    <!-- Step 1 -->
+    <rect x="0" y="0" width="140" height="150" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="28" rx="8" fill="#1e293b"/>
+    <text x="70" y="19" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">1. FORMAT</text>
+    <text x="70" y="55" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Biome Formatter</text>
+    <text x="70" y="80" text-anchor="middle" fill="#94a3b8" font-size="10">Indentation, quotes,</text>
+    <text x="70" y="95" text-anchor="middle" fill="#94a3b8" font-size="10">semicolons, line</text>
+    <text x="70" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">wrapping consistency.</text>
+    <text x="70" y="135" text-anchor="middle" fill="#10b981" font-size="10" font-weight="600">✔ Auto-Fixable</text>
 
-  <!-- Flow Boxes -->
-  <!-- Layer 1 -->
-  <g transform="translate(100, 105)" filter="url(#glow)">
-    <rect x="0" y="0" width="800" height="52" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
-    <circle cx="35" cy="26" r="16" fill="#0284c7"/>
-    <text x="35" y="32" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
-    <text x="70" y="24" fill="#f8fafc" font-weight="bold" font-size="15">Code Formatter Layer (Biome / Spotless / Black / rustfmt)</text>
-    <text x="70" y="42" fill="#94a3b8" font-size="12">Standardizes layout, indentation, line wraps, import sorting. Eliminates styling disputes.</text>
+    <!-- Arrow 1 -->
+    <path d="M 140 75 L 160 75" stroke="#38bdf8" stroke-width="2"/>
+
+    <!-- Step 2 -->
+    <rect x="160" y="0" width="140" height="150" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect x="160" y="0" width="140" height="28" rx="8" fill="#1e293b"/>
+    <text x="230" y="19" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">2. LINT</text>
+    <text x="230" y="55" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Biome Linter</text>
+    <text x="230" y="80" text-anchor="middle" fill="#94a3b8" font-size="10">Antipatterns, dead</text>
+    <text x="230" y="95" text-anchor="middle" fill="#94a3b8" font-size="10">code, complexity,</text>
+    <text x="230" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">function length &lt;50.</text>
+    <text x="230" y="135" text-anchor="middle" fill="#10b981" font-size="10" font-weight="600">✔ Zero Warnings</text>
+
+    <!-- Arrow 2 -->
+    <path d="M 300 75 L 320 75" stroke="#38bdf8" stroke-width="2"/>
+
+    <!-- Step 3 -->
+    <rect x="320" y="0" width="140" height="150" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect x="320" y="0" width="140" height="28" rx="8" fill="#1e293b"/>
+    <text x="390" y="19" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">3. TYPECHECK</text>
+    <text x="390" y="55" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Strict TSC 5.8</text>
+    <text x="390" y="80" text-anchor="middle" fill="#94a3b8" font-size="10">Zero 'any' bypasses,</text>
+    <text x="390" y="95" text-anchor="middle" fill="#94a3b8" font-size="10">strict null checks,</text>
+    <text x="390" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">exhaustive unions.</text>
+    <text x="390" y="135" text-anchor="middle" fill="#10b981" font-size="10" font-weight="600">✔ 100% Typed</text>
+
+    <!-- Arrow 3 -->
+    <path d="M 460 75 L 480 75" stroke="#38bdf8" stroke-width="2"/>
+
+    <!-- Step 4 -->
+    <rect x="480" y="0" width="140" height="150" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect x="480" y="0" width="140" height="28" rx="8" fill="#1e293b"/>
+    <text x="550" y="19" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">4. ARCH-CHECK</text>
+    <text x="550" y="55" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Boundary Scanner</text>
+    <text x="550" y="80" text-anchor="middle" fill="#94a3b8" font-size="10">AST import graph,</text>
+    <text x="550" y="95" text-anchor="middle" fill="#94a3b8" font-size="10">cycle detection,</text>
+    <text x="550" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">inward rule check.</text>
+    <text x="550" y="135" text-anchor="middle" fill="#10b981" font-size="10" font-weight="600">✔ Zero Cycles</text>
+
+    <!-- Arrow 4 -->
+    <path d="M 620 75 L 640 75" stroke="#38bdf8" stroke-width="2"/>
+
+    <!-- Step 5 -->
+    <rect x="640" y="0" width="140" height="150" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect x="640" y="0" width="140" height="28" rx="8" fill="#1e293b"/>
+    <text x="710" y="19" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">5. SECURITY</text>
+    <text x="710" y="55" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Secret &amp; Catch</text>
+    <text x="710" y="80" text-anchor="middle" fill="#94a3b8" font-size="10">Token entropy scan,</text>
+    <text x="710" y="95" text-anchor="middle" fill="#94a3b8" font-size="10">zero empty catch,</text>
+    <text x="710" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">failure logging.</text>
+    <text x="710" y="135" text-anchor="middle" fill="#10b981" font-size="10" font-weight="600">✔ Zero Leaks</text>
+
+    <!-- Arrow 5 -->
+    <path d="M 780 75 L 800 75" stroke="#38bdf8" stroke-width="2"/>
+
+    <!-- Step 6 -->
+    <rect x="800" y="0" width="140" height="150" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect x="800" y="0" width="140" height="28" rx="8" fill="#1e293b"/>
+    <text x="870" y="19" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">6. TESTS</text>
+    <text x="870" y="55" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Test Suite</text>
+    <text x="870" y="80" text-anchor="middle" fill="#94a3b8" font-size="10">Unit, integration,</text>
+    <text x="870" y="95" text-anchor="middle" fill="#94a3b8" font-size="10">governance tests,</text>
+    <text x="870" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">regression shields.</text>
+    <text x="870" y="135" text-anchor="middle" fill="#10b981" font-size="10" font-weight="600">✔ 100% Passing</text>
   </g>
 
-  <!-- Layer 2 -->
-  <g transform="translate(100, 170)" filter="url(#glow)">
-    <rect x="0" y="0" width="800" height="52" rx="10" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
-    <circle cx="35" cy="26" r="16" fill="#2563eb"/>
-    <text x="35" y="32" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
-    <text x="70" y="24" fill="#f8fafc" font-weight="bold" font-size="15">Linter &amp; Antipattern Detector (Biome / Ruff / ESLint / Clippy)</text>
-    <text x="70" y="42" fill="#94a3b8" font-size="12">Finds unused variables, excessive cognitive complexity (&gt;15), dangerous coercions, and shadow names.</text>
-  </g>
+  <!-- Output Decision Box -->
+  <g transform="translate(150, 310)">
+    <rect x="0" y="0" width="700" height="150" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="350" y="32" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="700">UNIFIED QUALITY GATE (npm run quality)</text>
+    
+    <rect x="50" y="55" width="280" height="70" rx="6" fill="#10b981" opacity="0.15" stroke="#10b981" stroke-width="1.5"/>
+    <text x="190" y="85" text-anchor="middle" fill="#10b981" font-size="14" font-weight="700">✔ ALL GATES PASSED</text>
+    <text x="190" y="105" text-anchor="middle" fill="#cbd5e1" font-size="11">Eligible for Pull Request &amp; Merge</text>
 
-  <!-- Layer 3 -->
-  <g transform="translate(100, 235)" filter="url(#glow)">
-    <rect x="0" y="0" width="800" height="52" rx="10" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
-    <circle cx="35" cy="26" r="16" fill="#4f46e5"/>
-    <text x="35" y="32" text-anchor="middle" fill="#fff" font-weight="bold">3</text>
-    <text x="70" y="24" fill="#f8fafc" font-weight="bold" font-size="15">Strict Type Checking (TypeScript / Pyright / Compiler)</text>
-    <text x="70" y="42" fill="#94a3b8" font-size="12">Enforces strict null checks. Strictly forbids 'any', unchecked indexed access, and raw bypasses.</text>
-  </g>
-
-  <!-- Layer 4 -->
-  <g transform="translate(100, 300)" filter="url(#glow)">
-    <rect x="0" y="0" width="800" height="52" rx="10" fill="#1e293b" stroke="#a855f7" stroke-width="2"/>
-    <circle cx="35" cy="26" r="16" fill="#9333ea"/>
-    <text x="35" y="32" text-anchor="middle" fill="#fff" font-weight="bold">4</text>
-    <text x="70" y="24" fill="#f8fafc" font-weight="bold" font-size="15">Architecture &amp; Circular Dependency Enforcement</text>
-    <text x="70" y="42" fill="#94a3b8" font-size="12">Detects layer inversions (e.g. Domain importing Infrastructure) and circular import graphs.</text>
-  </g>
-
-  <!-- Layer 5 -->
-  <g transform="translate(100, 365)" filter="url(#glow)">
-    <rect x="0" y="0" width="800" height="52" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="2"/>
-    <circle cx="35" cy="26" r="16" fill="#db2777"/>
-    <text x="35" y="32" text-anchor="middle" fill="#fff" font-weight="bold">5</text>
-    <text x="70" y="24" fill="#f8fafc" font-weight="bold" font-size="15">Security Audit, Secret Scanning &amp; Error Contracts</text>
-    <text x="70" y="42" fill="#94a3b8" font-size="12">Scans for hardcoded tokens/passwords, forbids empty catch blocks and silent null swallows.</text>
-  </g>
-
-  <!-- Layer 6 -->
-  <g transform="translate(100, 430)" filter="url(#glow)">
-    <rect x="0" y="0" width="800" height="52" rx="10" fill="#1e293b" stroke="#34d399" stroke-width="2"/>
-    <circle cx="35" cy="26" r="16" fill="#059669"/>
-    <text x="35" y="32" text-anchor="middle" fill="#fff" font-weight="bold">6</text>
-    <text x="70" y="24" fill="#f8fafc" font-weight="bold" font-size="15">Automated Test Suites (Unit &amp; Regression Tests)</text>
-    <text x="70" y="42" fill="#94a3b8" font-size="12">Verifies business requirements, edge cases, domain invariants, and ensures zero regression.</text>
-  </g>
-
-  <!-- Layer 7 Gate -->
-  <g transform="translate(100, 495)" filter="url(#glow)">
-    <rect x="0" y="0" width="800" height="60" rx="10" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
-    <circle cx="35" cy="30" r="16" fill="#10b981"/>
-    <text x="35" y="36" text-anchor="middle" fill="#fff" font-weight="bold">7</text>
-    <text x="70" y="27" fill="#a7f3d0" font-weight="bold" font-size="16">QUALITY GATE VERIFIED → APPROVED FOR PULL REQUEST</text>
-    <text x="70" y="47" fill="#6ee7b7" font-size="12">Continuous Integration passes cleanly. Ready for human code review and production deployment.</text>
+    <rect x="370" y="55" width="280" height="70" rx="6" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="510" y="85" text-anchor="middle" fill="#ef4444" font-size="14" font-weight="700">✖ ANY GATE REJECTED</text>
+    <text x="510" y="105" text-anchor="middle" fill="#cbd5e1" font-size="11">Triggers Agent Autonomous Repair Loop</text>
   </g>
 </svg>

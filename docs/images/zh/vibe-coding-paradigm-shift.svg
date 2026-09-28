@@ -1,74 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" style="background:#0f172a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Roboto,sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" style="background:#090d16; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;">
   <defs>
     <linearGradient id="badGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="#991b1b" stop-opacity="0.1"/>
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#991b1b" stop-opacity="0.05"/>
     </linearGradient>
     <linearGradient id="goodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="#047857" stop-opacity="0.1"/>
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.05"/>
     </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.5"/>
-    </filter>
+    <linearGradient id="badHeader" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <linearGradient id="goodHeader" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
   </defs>
 
-  <text x="500" y="45" text-anchor="middle" fill="#f8fafc" font-size="24" font-weight="bold">VIBE CODING 范式演进</text>
-  <text x="500" y="72" text-anchor="middle" fill="#94a3b8" font-size="14">从脆弱的“打补丁”混乱，到工程化的韧性质量治理</text>
+  <text x="500" y="42" text-anchor="middle" fill="#f8fafc" font-size="22" font-weight="700">VIBE CODING 代码治理范式迁移</text>
+  <text x="500" y="68" text-anchor="middle" fill="#94a3b8" font-size="13">从脆弱盲目的补丁堆叠走向工程级自主可控韧性体系</text>
 
-  <rect x="40" y="100" width="430" height="380" rx="16" fill="url(#badGrad)" stroke="#ef4444" stroke-width="2" filter="url(#shadow)"/>
-  <rect x="60" y="120" width="390" height="35" rx="8" fill="#ef4444"/>
-  <text x="255" y="143" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">失控的 VIBE CODING（技术债混乱）</text>
+  <!-- Left: Chaos -->
+  <rect x="40" y="95" width="440" height="395" rx="8" fill="url(#badGrad)" stroke="#ef4444" stroke-width="1.5"/>
+  <rect x="55" y="110" width="410" height="34" rx="6" fill="url(#badHeader)"/>
+  <text x="260" y="132" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">❌ 失控的 VIBE CODING 混乱开发</text>
 
-  <g transform="translate(65, 175)" font-size="13" fill="#fca5a5">
-    <rect x="0" y="0" width="380" height="38" rx="6" fill="#1e293b" stroke="#7f1d1d"/>
-    <text x="20" y="24">人类自然语言 Prompt → AI 生成代码</text>
-
-    <path d="M 190 38 L 190 55" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
-    
-    <rect x="0" y="55" width="380" height="38" rx="6" fill="#1e293b" stroke="#7f1d1d"/>
-    <text x="20" y="79">AI 直接在已有文件中盲目追加 Patch</text>
-
-    <path d="M 190 93 L 190 110" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
-
-    <rect x="0" y="110" width="380" height="38" rx="6" fill="#1e293b" stroke="#7f1d1d"/>
-    <text x="20" y="134">代码运行（“在我电脑上能跑就行”）</text>
-
-    <path d="M 190 148 L 190 165" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
-
-    <rect x="0" y="165" width="380" height="110" rx="8" fill="#450a0a" stroke="#dc2626"/>
-    <text x="20" y="190" fill="#fecaca" font-weight="bold">⚠️ 必然的技术腐化与隐患：</text>
-    <text x="35" y="212" fill="#fca5a5" font-size="12">• God Class 与数千行单体巨型文件</text>
-    <text x="35" y="230" fill="#fca5a5" font-size="12">• 循环依赖与隐式全局可变状态</text>
-    <text x="35" y="248" fill="#fca5a5" font-size="12">• Patch 的 Patch 导致级联回归缺陷</text>
-    <text x="35" y="266" fill="#fca5a5" font-size="12">• 空 catch 吞没异常与技术债无限滚雪球</text>
+  <g transform="translate(65, 170)" font-size="12" fill="#fca5a5">
+    <text y="0">⚠️ 碎片化盲目生成导致代码迅速腐烂</text>
+    <text y="28">• 面条式混乱依赖与隐蔽的底层循环引用</text>
+    <text y="56">• 400+ 行庞大巨石类 (God Files) 破坏单一职责</text>
+    <text y="84">• 滥用 'any' 类型绕过编译器与类型检查系统</text>
+    <text y="112">• 静默吞噬异常 (空 catch 块内部无任何日志)</text>
+    <text y="140">• 硬编码密钥、API Tokens 与临时凭证泄露</text>
+    <text y="168">• 重复创建平行类 (如 userService2, utilsCopy)</text>
+    <text y="196">• 盲目补丁堆叠，从不定位领域模型真正根因</text>
+    <text y="224">• 恶意删除或注释失败测试以强行让 CI 变绿</text>
+    <text y="252">• 隐蔽全局可变单例与难以追踪的副作用</text>
+    <text y="280">• 代码库在 48 小时内彻底失去长期可维护性</text>
   </g>
 
-  <rect x="530" y="100" width="430" height="380" rx="16" fill="url(#goodGrad)" stroke="#10b981" stroke-width="2" filter="url(#shadow)"/>
-  <rect x="550" y="120" width="390" height="35" rx="8" fill="#10b981"/>
-  <text x="745" y="143" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">治理下的 VIBE CODING（工程化保障）</text>
+  <!-- Right: Governed -->
+  <rect x="520" y="95" width="440" height="395" rx="8" fill="url(#goodGrad)" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="535" y="110" width="410" height="34" rx="6" fill="url(#goodHeader)"/>
+  <text x="740" y="132" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">✔ 工程化智能体治理体系 (GOVERNED)</text>
 
-  <g transform="translate(555, 175)" font-size="13" fill="#6ee7b7">
-    <rect x="0" y="0" width="380" height="38" rx="6" fill="#1e293b" stroke="#064e3b"/>
-    <text x="20" y="24">需求输入 + AGENTS.md 宪法约束</text>
-
-    <path d="M 190 38 L 190 55" stroke="#10b981" stroke-width="2"/>
-    
-    <rect x="0" y="55" width="380" height="38" rx="6" fill="#1e293b" stroke="#064e3b"/>
-    <text x="20" y="79">AI 检索已有模块与辅助类，最小修改</text>
-
-    <path d="M 190 93 L 190 110" stroke="#10b981" stroke-width="2"/>
-
-    <rect x="0" y="110" width="380" height="38" rx="6" fill="#1e293b" stroke="#064e3b"/>
-    <text x="20" y="134">多层自动化质量门禁（6 层刚性校验）</text>
-
-    <path d="M 190 148 L 190 165" stroke="#10b981" stroke-width="2"/>
-
-    <rect x="0" y="165" width="380" height="110" rx="8" fill="#064e3b" stroke="#059669"/>
-    <text x="20" y="190" fill="#a7f3d0" font-weight="bold">🛡️ 稳固的质量与工程韧性：</text>
-    <text x="35" y="212" fill="#6ee7b7" font-size="12">• 自动化根因诊断与 Agent 自主自愈循环</text>
-    <text x="35" y="230" fill="#6ee7b7" font-size="12">• 严格向内的整洁架构边界与无环图</text>
-    <text x="35" y="248" fill="#6ee7b7" font-size="12">• 零 Secret 泄露与强类型错误契约</text>
-    <text x="35" y="266" fill="#6ee7b7" font-size="12">• 长期可持续迭代的高速度与零腐化</text>
+  <g transform="translate(545, 170)" font-size="12" fill="#a7f3d0">
+    <text y="0">🛡️ 确定性单一事实基准 (SSOT 宪法体系)</text>
+    <text y="28">• 整洁架构：依赖严格单向内向流动</text>
+    <text y="56">• 模块单一职责：函数 &lt; 50 行，圈复杂度 &lt; 12</text>
+    <text y="84">• TypeScript 严格模式：100% 类型健全，零 any</text>
+    <text y="112">• 强类型领域异常显式抛出与透明失败</text>
+    <text y="140">• 静态 AST 敏感词与凭证拦截脱敏机制</text>
+    <text y="168">• 强制前置检索：优先复用既有仓储端口与适配器</text>
+    <text y="196">• 智能体自主根因分析与代码结构级自愈重构</text>
+    <text y="224">• 100% 测试通过率并强制补充防回归测试</text>
+    <text y="252">• 显式依赖注入容器与纯粹无副作用领域模型</text>
+    <text y="280">• 满足工业级高可用架构的长期演进标准</text>
   </g>
 </svg>

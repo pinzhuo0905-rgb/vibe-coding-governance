@@ -1,76 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" style="background:#0f172a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Roboto,sans-serif;">
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
-    </marker>
-    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
-    </marker>
-    <marker id="arrowRed" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444"/>
-    </marker>
-  </defs>
-
-  <text x="500" y="45" text-anchor="middle" fill="#f8fafc" font-size="24" font-weight="bold">AI AGENT 自主验证与自愈修复循环</text>
-  <text x="500" y="72" text-anchor="middle" fill="#94a3b8" font-size="14">自我纠错闭环：“允许 AI 产生差错，但不允许错误通过工程门禁”</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" style="background:#090d16; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;">
+  <text x="500" y="42" text-anchor="middle" fill="#f8fafc" font-size="22" font-weight="700">智能体自主根因诊断与闭环自愈修复链路</text>
+  <text x="500" y="68" text-anchor="middle" fill="#94a3b8" font-size="13">基于结构化诊断报告驱动的智能体重构，严禁逃避检查与降级绕过</text>
 
   <!-- Step 1 -->
-  <g transform="translate(60, 110)">
-    <rect x="0" y="0" width="190" height="70" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
-    <text x="95" y="32" text-anchor="middle" fill="#f8fafc" font-weight="bold" font-size="14">1. 读取项目上下文</text>
-    <text x="95" y="52" text-anchor="middle" fill="#94a3b8" font-size="11">AGENTS.md 与架构规则</text>
-  </g>
+  <rect x="40" y="115" width="180" height="100" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="130" y="150" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700">1. 执行质量门禁</text>
+  <text x="130" y="172" text-anchor="middle" fill="#cbd5e1" font-size="11">npm run quality</text>
+  <text x="130" y="192" text-anchor="middle" fill="#94a3b8" font-size="10">格式、静态、类型、安全与测试</text>
 
-  <path d="M 250 145 L 290 145" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- Arrow -->
+  <path d="M 220 165 L 260 165" stroke="#38bdf8" stroke-width="2"/>
 
   <!-- Step 2 -->
-  <g transform="translate(300, 110)">
-    <rect x="0" y="0" width="190" height="70" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
-    <text x="95" y="32" text-anchor="middle" fill="#f8fafc" font-weight="bold" font-size="14">2. 检索并实现需求</text>
-    <text x="95" y="52" text-anchor="middle" fill="#94a3b8" font-size="11">专注最小范围原子变更</text>
-  </g>
+  <rect x="260" y="115" width="200" height="100" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="360" y="150" text-anchor="middle" fill="#ef4444" font-size="13" font-weight="700">2. 门禁机器级拦截</text>
+  <text x="360" y="172" text-anchor="middle" fill="#fca5a5" font-size="11">零绕过与零妥协保证</text>
+  <text x="360" y="192" text-anchor="middle" fill="#94a3b8" font-size="10">立即阻断代码提交与 PR 合入</text>
 
-  <path d="M 490 145 L 530 145" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- Arrow -->
+  <path d="M 460 165 L 500 165" stroke="#ef4444" stroke-width="2"/>
 
   <!-- Step 3 -->
-  <g transform="translate(540, 110)">
-    <rect x="0" y="0" width="200" height="70" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
-    <text x="100" y="32" text-anchor="middle" fill="#f8fafc" font-weight="bold" font-size="14">3. 执行统一质量门禁</text>
-    <text x="100" y="52" text-anchor="middle" fill="#fbbf24" font-size="11">npm run quality</text>
-  </g>
+  <rect x="500" y="115" width="220" height="100" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="610" y="145" text-anchor="middle" fill="#f59e0b" font-size="13" font-weight="700">3. 结构化诊断输出</text>
+  <text x="610" y="168" text-anchor="middle" fill="#cbd5e1" font-size="11">• 目标错误分类 (架构/类型/安全)</text>
+  <text x="610" y="186" text-anchor="middle" fill="#cbd5e1" font-size="11">• 完整标准输出与报错调用栈</text>
+  <text x="610" y="202" text-anchor="middle" fill="#94a3b8" font-size="10">• 明确的官方自愈修复建议指令</text>
 
-  <path d="M 740 145 L 800 145" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- Arrow -->
+  <path d="M 720 165 L 760 165" stroke="#f59e0b" stroke-width="2"/>
 
-  <!-- Decision -->
-  <g transform="translate(850, 145)">
-    <polygon points="0,-45 45,0 0,45 -45,0" fill="#334155" stroke="#f8fafc" stroke-width="2"/>
-    <text x="0" y="5" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">门禁通过？</text>
-  </g>
+  <!-- Step 4 -->
+  <rect x="760" y="115" width="200" height="100" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="860" y="145" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700">4. 智能体根因分析</text>
+  <text x="860" y="168" text-anchor="middle" fill="#cbd5e1" font-size="11">深度解析状态机与领域模型</text>
+  <text x="860" y="186" text-anchor="middle" fill="#94a3b8" font-size="10">严禁添加 ignore 注释欺瞒</text>
+  <text x="860" y="202" text-anchor="middle" fill="#94a3b8" font-size="10">严禁删改或跳过失败断言</text>
 
-  <!-- Branch YES -->
-  <path d="M 850 190 L 850 340" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
-  <text x="865" y="260" fill="#10b981" font-weight="bold" font-size="14">通过 (PASS)</text>
+  <!-- Loop Downward Arrow -->
+  <path d="M 860 215 L 860 300" stroke="#0284c7" stroke-width="2"/>
 
-  <g transform="translate(740, 350)">
-    <rect x="0" y="0" width="220" height="80" rx="12" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
-    <text x="110" y="35" text-anchor="middle" fill="#a7f3d0" font-weight="bold" font-size="15">提交 COMMIT 并推送</text>
-    <text x="110" y="58" text-anchor="middle" fill="#6ee7b7" font-size="12">发起 Pull Request</text>
-  </g>
+  <!-- Step 5 -->
+  <rect x="520" y="270" width="300" height="90" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="670" y="302" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700">5. 原子化架构级代码自愈重构</text>
+  <text x="670" y="325" text-anchor="middle" fill="#cbd5e1" font-size="11">倒置依赖接口、提取纯内层值对象与健壮类型</text>
+  <text x="670" y="343" text-anchor="middle" fill="#94a3b8" font-size="10">保持公共对外 API 契约严谨稳定</text>
 
-  <!-- Branch NO -->
-  <path d="M 805 145 L 640 145 L 640 280" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrowRed)"/>
-  <text x="730" y="135" fill="#ef4444" font-weight="bold" font-size="14">未通过 (FAIL)</text>
+  <!-- Loop back to Step 1 -->
+  <path d="M 520 315 L 130 315 L 130 215" stroke="#0284c7" stroke-width="2" stroke-dasharray="4"/>
+  <text x="325" y="305" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="600">重新触发验证流水线，直至 100% 全绿</text>
 
-  <!-- Repair Box -->
-  <g transform="translate(480, 290)">
-    <rect x="0" y="0" width="320" height="110" rx="12" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
-    <text x="160" y="30" text-anchor="middle" fill="#fecaca" font-weight="bold" font-size="14">4. 自主根因分析与修复</text>
-    <text x="20" y="55" fill="#fca5a5" font-size="12">• 检查结构化报错类别与堆栈诊断信息</text>
-    <text x="20" y="73" fill="#fca5a5" font-size="12">• 严禁投机绕过（禁止加 any、禁止加 ignore、禁止删测试）</text>
-    <text x="20" y="91" fill="#fca5a5" font-size="12">• 寻找根本原因，实施架构级语义修复</text>
-  </g>
-
-  <!-- Loop back -->
-  <path d="M 480 345 L 395 345 L 395 190" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrowRed)"/>
-  <text x="405" y="270" fill="#ef4444" font-size="12" font-weight="bold">自愈闭环</text>
+  <!-- Final Success Box -->
+  <rect x="250" y="400" width="500" height="65" rx="8" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="2"/>
+  <text x="500" y="428" text-anchor="middle" fill="#10b981" font-size="15" font-weight="700">✔ 门禁全绿通过 (允许合入 PULL REQUEST)</text>
+  <text x="500" y="448" text-anchor="middle" fill="#f8fafc" font-size="12">按约定式提交规范生成 Commit 并发起审查合并</text>
 </svg>

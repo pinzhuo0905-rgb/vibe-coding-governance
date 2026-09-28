@@ -20,7 +20,7 @@
     "test:governance": "node --test tests/governance/*.test.mjs",
     "security:check": "node scripts/security-check.mjs",
     "rule:sync": "node scripts/rule-sync.mjs",
-    "generate:diagrams": "node scripts/generate-diagrams.mjs && node scripts/generate-zh.mjs",
+    "generate:diagrams": "node scripts/generate-code-diagrams.mjs",
     "skill:invoke": "node scripts/invoke-skill.mjs",
     "skill:audit": "node scripts/invoke-skill.mjs audit",
     "skill:verify": "node scripts/invoke-skill.mjs verify",
