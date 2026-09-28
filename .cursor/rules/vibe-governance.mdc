@@ -6,128 +6,190 @@ alwaysApply: true
 <!-- AUTO-GENERATED FROM AGENTS.md - DO NOT EDIT DIRECTLY -->
 <!-- Run 'npm run rule:sync' to propagate changes from AGENTS.md -->
 
-# Universal Vibe Coding Agent Constitution: Code & UI Design Governance
+# Universal Vibe Coding Code Quality Governance Constitution
 
-> **Core Philosophy:** *AI coding agents are free to generate functionality rapidly, but are strictly prohibited from degrading project architecture, safety, code quality, or user interface elegance.*
+> **Core Philosophy:** *AI coding agents are free to generate functionality rapidly, but are strictly prohibited from degrading project architecture, safety, or code quality.*
 
 This document serves as the **Single Source of Truth (SSOT)** and **Development Constitution** for all AI Coding Agents (including OpenAI Codex, Claude Code, Cursor, GitHub Copilot, Gemini, and Windsurf) operating within this repository.
 
 ---
 
-## 1. Dual-Engine Governance Architecture
+## 1. Architectural Boundaries & Dependency Rules
 
 ```mermaid
 flowchart TD
-    subgraph Requirement [Product Context & Requirements]
-        PC[PRODUCT_CONTEXT.md]
-        Spec[UI_DESIGN_GOVERNANCE_IMPLEMENTATION_SPEC.md]
+    subgraph Presentation [Presentation Layer]
+        CLI[CLI Commands]
+        Controllers[API Controllers]
     end
 
-    subgraph CodeEngine [Engine 1: Code Governance]
-        Arch[ARCHITECTURE.md]
-        CQ[CODE_QUALITY.md]
-        Types[Strict Types / Zero Any]
-        Clean[Inward Clean Architecture]
+    subgraph Application [Application Layer]
+        UseCases[Use Cases]
+        DTO[DTOs & Mappers]
+        Ports[Repository Ports / Interfaces]
     end
 
-    subgraph DesignEngine [Engine 2: UI Design Governance]
-        DNA[DESIGN_DNA.md: Clinical Precision]
-        Tokens[design-tokens.json]
-        Rules[UI_RULES.md: Anti-Slop Guardrails]
-        Screens[screens/*.md: 10 Mandatory States]
-        Browser[Headless Browser Render]
+    subgraph Domain [Domain Layer - Core]
+        Entities[Domain Entities]
+        ValueObjects[Value Objects]
+        DomainErrors[Domain Errors]
     end
 
-    subgraph QualityGate [Unified Dual Quality Gate]
-        Gate[npm run quality]
-        Pass[Commit & Pull Request]
+    subgraph Infrastructure [Infrastructure Layer]
+        Persistence[In-Memory / Database]
+        ExternalClients[External Services & Adapters]
     end
 
-    Requirement --> CodeEngine
-    Requirement --> DesignEngine
-    CodeEngine --> Gate
-    DesignEngine --> Gate
-    Gate --> Pass
+    CLI --> UseCases
+    Controllers --> UseCases
+    UseCases --> Entities
+    UseCases --> Ports
+    UseCases --> DomainErrors
+    Persistence -.implements.-> Ports
+    ExternalClients -.implements.-> Ports
+    Persistence --> Entities
 ```
 
----
-
-## 2. Architectural Boundaries & Dependency Rules (Code Governance)
-
 1. **Inward Dependency Rule**: Source code dependencies must point inwards only.
-   - **Domain Layer**: Zero dependencies on outer layers or external libraries. Pure business logic and domain entities only.
-   - **Application Layer**: Depends only on Domain. Inverts infrastructure dependencies via port interfaces.
-   - **Infrastructure Layer**: Implements Application port interfaces. Must not depend on Presentation.
+   - **Domain Layer**: Must have **zero** dependencies on outer layers or external libraries. Pure business logic and domain entities only.
+   - **Application Layer**: Depends **only** on the Domain layer. Inverts infrastructure dependencies through port interfaces.
+   - **Infrastructure Layer**: Implements Application port interfaces. Must not depend on the Presentation layer.
    - **Presentation Layer**: Consumes Application use-cases. Must not bypass Application to access Infrastructure directly.
-2. **Circular Dependencies**: **Strictly forbidden.** Any cyclic import graph fails the Quality Gate immediately.
+2. **Circular Dependencies**: **Strictly forbidden.** Any cyclic import graph will fail the Quality Gate immediately.
 3. **Module Boundaries**: Depend strictly on exported public interfaces; do not reach into internal private files of other modules.
 
 ---
 
-## 3. Code Quality & Local Reasoning Standards
+## 2. Code Quality & Local Reasoning Standards
 
-1. **Function Length & Complexity**: Target < 30 lines; hard ceiling of **50 lines**. Cyclomatic complexity ceiling of **12**.
-2. **Control Flow**: Flatten logic using guard clauses and early returns. Never nest `if` statements exceeding 2 levels.
-3. **Semantic Naming**: Use intent-revealing business names (`pendingEvaluations`, `evaluateQualityGate()`). Booleans must read like true/false questions (`isCompliant`, `hasViolations`).
-4. **Strong Typing**: Use Enums, Union Types, or frozen value objects. **Never use `any`**, unchecked casts, or suppression directives.
-5. **Strict Error Handling**: Zero empty catch blocks. Catch blocks must log contextual metadata, wrap in a domain exception, or rethrow.
+Code must maximize **Local Reasoning**: any developer or AI reading a single function or module must be able to understand its complete behavior without mentally loading the entire repository state.
+
+### 2.1 Function Length & Complexity
+- **Function Length**: Target < 30 lines; hard ceiling of **50 lines**. Functions exceeding 50 lines must be decomposed into cohesive single-responsibility helpers.
+- **Cyclomatic Complexity**: Hard ceiling of **12**. Avoid complex branching conditions.
+- **Cognitive Complexity**: Keep logic flat and sequential.
+
+### 2.2 Control Flow & Deep Nesting
+- **Flatten Control Flow**: Never write nested `if` ladders exceeding 2 levels.
+- **Mandate Guard Clauses & Early Returns**:
+  ```typescript
+  // RECOMMENDED: Flat with early return
+  function processPayment(order: Order): PaymentResult {
+    if (!order.isPayable()) {
+      throw new InvalidOrderStateError(order.id, order.status);
+    }
+    if (order.isExpired()) {
+      throw new OrderExpiredError(order.id);
+    }
+    return executeTransaction(order);
+  }
+  ```
+
+### 2.3 Semantic Naming Conventions
+- **Intent-Revealing Names**: Names must describe exact business meaning.
+  - *Forbidden:* `data`, `tmp`, `stuff`, `x`, `val2`, `manager2`, `doSomething()`.
+  - *Required:* `pendingOrders`, `userEmailAddress`, `calculateDiscountRate()`.
+- **Boolean Variables**: Must read like true/false questions:
+  - *Required:* `isActive`, `isValid`, `hasPermission`, `canPurchase`, `shouldRetry`, `needsRefresh`.
+  - *Forbidden:* `flag`, `status`, `check`, `x`.
+
+### 2.4 Magic Values & Strong Typing
+- **No Magic Numbers or Strings**: Never write inline literal status numbers (`status === 3`) or timeouts (`timeout = 86400`).
+- **Enforce Strong Types**: Use Enums, Union Types, or frozen value objects (`OrderStatus.PAID`, `SESSION_TIMEOUT_SECONDS`).
+- **No Type-System Bypasses**: Never use `any`, unchecked casts, `@SuppressWarnings`, or `type: ignore` merely to pass compiler checks. The type checker is your primary automated reviewer.
+
+### 2.5 State Management
+- **No Global Mutable State**: Eliminate hidden singletons, global counters, and implicit side-effects.
+- **Explicit Data Flow**: Pass dependencies explicitly via constructor parameters or context containers.
 
 ---
 
-## 4. UI Design Governance & Anti-Slop Mandates
+## 3. Strict Error Handling & Resilience Contracts
 
-AI agents must strictly eliminate generic "AI Slop" aesthetics and build professional, production-grade interfaces adhering to:
-
-### 4.1 Negative Constraints (Strictly Banned Patterns)
-- ❌ **No Purple/Blue Gradient Clichés**: Never apply `linear-gradient` hero fills or marketing gradients.
-- ❌ **No Gradient Text**: Never render headings with gradient fills (`-webkit-text-fill-color: transparent`).
-- ❌ **No Glowing Neon Shadows**: Never apply glowing colored box-shadows. Use crisp 1px borders for delineation.
-- ❌ **No "Card Soup"**: Do not wrap every arbitrary element in a rounded card. Never nest cards deeper than 1 level.
-- ❌ **No Pill Buttons Everywhere**: Standard actions must use calibrated `radius-md` (6px) controls, never full-pill `rounded-full`.
-- ❌ **No Marketing Hero in Tools**: Productivity and operational consoles must prioritize immediate data density and workflows over 80px marketing banners.
-- ❌ **No Fake Vanity KPIs**: Do not invent arbitrary metric tiles with meaningless sparklines unless tied to real domain data.
-- ❌ **No Excessive Whitespace**: Never inject arbitrary 64px+ spacing in dense professional workbench software.
-
-### 4.2 Positive Design Imperatives
-- ✅ **Spec-First Engineering**: Read or create `design/screens/<screen>.md` before writing UI code.
-- ✅ **Design Tokens Compliance**: All colors, radiuses, paddings, and font sizes must reference `design/design-tokens.json` (zero hardcoded arbitrary pixel values).
-- ✅ **Clinical Precision Archetype**: Follow the structural, high-density, monochrome foundation specified in `DESIGN_DNA.md`.
-- ✅ **10-State Screen Completeness**: Every screen and interactive workflow must specify and account for the 10 states:
-  1. Default, 2. Loading, 3. Empty, 4. Error, 5. Success, 6. Disabled, 7. Unauthorized, 8. Offline, 9. Overflow, 10. Large Dataset.
-- ✅ **Evidence-Based Browser Verification**: Never trust code alone. Run `npm run ui:screenshot` to capture and inspect real multi-viewport renderings (Desktop 1440x900, Tablet 768x1024, Mobile 375x812).
+1. **No Silent Error Swallowing**: Empty catch blocks (`catch (e) {}` or `except: pass`) are completely forbidden.
+2. **No Silent Null Returns on Failure**: Do not write `catch (e) { return null; }` unless `null` is an explicitly typed and documented contract of the method.
+3. **Domain-Specific Errors**: Throw typed business errors (`UserNotFoundError`, `InsufficientFundsError`) rather than generic `Error` or `RuntimeException`.
+4. **Failure Transparency**: Every caught error must be properly logged with contextual metadata, transformed into a typed domain exception, or re-thrown.
 
 ---
 
-## 5. AI Agent Autonomous Execution Workflow
+## 4. Anti-Duplication & Refactoring Discipline (DRY)
 
-Every coding and UI task assigned to an AI Agent must strictly follow this lifecycle:
+1. **Mandatory Pre-Search**: Before creating *any* new helper, utility, service, repository, or validator, the Agent **must search the repository** to determine if an existing abstraction already exists.
+2. **No Parallel Implementations**: Never introduce `validateUser2()`, `userServiceNew.ts`, or `utils-copy.ts`.
+3. **No Compatibility Layer Accumulation**: When replacing an older implementation, do not perpetually maintain compatibility wrappers, legacy adapters, and fallback shims. Migrate callers and delete obsolete code.
+4. **Root Cause Analysis (RCA)**: When fixing a bug, do not blindly add another conditional patch on top of previous patches. Trace the defect to its fundamental root cause in the domain model or state transition.
 
-1. **Ingest Rules & Context**: Read `AGENTS.md`, `ARCHITECTURE.md`, `PRODUCT_CONTEXT.md`, and `DESIGN_DNA.md`.
-2. **Search Before Creating**: Search existing abstractions, utilities, and components before writing new code.
-3. **Spec-First Design**: For any UI addition, ensure `design/screens/<name>.md` exists with complete 10-state specifications.
-4. **Minimal Atomic Implementation**: Make small, cohesive modifications strictly referencing `design-tokens.json`.
-5. **Headless Browser Execution**: Render the UI and capture screenshot evidence across viewports (`npm run ui:screenshot`).
-6. **Execute Unified Quality Gate**:
+---
+
+## 5. Security & Secret Management
+
+1. **Zero Secret Leaks**: Never hardcode API keys, passwords, bearer tokens, or private certificates.
+2. **Environment & Secrets**: Load secrets exclusively through vetted configuration injectors and `process.env`.
+3. **Input Sanitization**: Validate all inputs at presentation boundaries before passing into application use-cases.
+
+---
+
+## 6. AI Agent Autonomous Execution Workflow
+
+Every coding task assigned to an AI Agent must strictly follow this lifecycle:
+
+```mermaid
+flowchart TD
+    Start([Task Initiated]) --> Step1[1. Read AGENTS.md & Architecture]
+    Step1 --> Step2[2. Search Existing Code & Helpers]
+    Step2 --> Step3[3. Formulate Minimal Atomic Change Plan]
+    Step3 --> Step4[4. Implement Code & Unit Tests]
+    Step4 --> Step5[5. Execute Unified Quality Command]
+    
+    Step5 --> Decision{Quality Gate Passed?}
+    
+    Decision -- NO --> Step6[6. Autonomous Root Cause Diagnosis]
+    Step6 --> Step7[7. Apply Structural Fix - No Bypasses]
+    Step7 --> Step5
+    
+    Decision -- YES --> Step8[8. Verify Definition of Done]
+    Step8 --> Step9[9. Commit & Create Pull Request]
+    Step9 --> Done([Task Completed])
+```
+
+1. **Read Rules**: Ingest `AGENTS.md` and `ARCHITECTURE.md` to understand domain rules.
+2. **Locate & Search**: Search existing modules before creating any new abstractions.
+3. **Minimal Diff**: Make the smallest reasonable, atomic changes.
+4. **Test Authoring**: Add unit tests for new business logic; add regression tests for bug fixes.
+5. **Run Quality Gate**: Execute the unified verification command:
    ```bash
    npm run quality
+   # or ./scripts/quality.sh / ./scripts/quality.ps1
    ```
-7. **Autonomous Repair Loop**: If any code lint, typecheck, architecture check, UI anti-slop linter, or test fails, diagnose root cause, repair structurally, and re-run. Never bypass or disable checks.
-8. **Commit & PR**: Once 100% green, commit using Conventional Commits.
+6. **Self-Repair Loop**: If any check fails, parse the structured diagnostic report, diagnose root cause, fix the issue, and re-run until all checks pass cleanly.
+7. **Commit & PR**: Only once all quality checks are 100% green, commit the changes following Conventional Commits.
 
 ---
 
-## 6. Definition of Done (DoD) Checklist
+## 7. Forbidden Practices (Immediate Disqualification)
+
+- ❌ Disabling linter rules, removing compiler checks, or adding `biome-ignore` / `eslint-disable` to bypass warnings.
+- ❌ Deleting or commenting out failing tests to make CI green.
+- ❌ Using `any` or generic object types to avoid writing proper types.
+- ❌ Creating monolithic files exceeding 400 lines (God Files).
+- ❌ Circular imports between modules.
+- ❌ Hardcoding credentials or authentication tokens.
+- ❌ Catching exceptions silently without logging or rethrowing.
+
+---
+
+## 8. Definition of Done (DoD) Checklist
 
 A task is **only complete** when all of the following conditions are verified:
 
-- [ ] **Format Check**: Code adheres to Biome formatting (`npm run format:check`).
+- [ ] **Format Check**: Code adheres to strict formatting standards (`npm run format:check`).
 - [ ] **Linter**: Zero lint errors and zero warnings (`npm run lint`).
 - [ ] **Type Check**: Zero compiler type errors under strict mode (`npm run typecheck`).
-- [ ] **Architecture Check**: Zero illegal layer access and zero circular imports (`npm run arch:check`).
+- [ ] **Architecture Check**: Zero illegal layer access and zero circular dependencies (`npm run arch:check`).
 - [ ] **Security Scan**: Zero hardcoded secrets, zero empty catches, zero `any` bypasses (`npm run security:check`).
-- [ ] **Design Tokens Conformance**: 100% compliant with `design-tokens.json` (`npm run ui:tokens`).
-- [ ] **UI Anti-Slop Linter**: Zero gradient/glow/pill slop violations and 10-state completeness (`npm run ui:lint`).
-- [ ] **Screenshot Evidence**: Verified captures saved in `screenshots/desktop/`, `tablet/`, `mobile/` (`npm run ui:screenshot`).
-- [ ] **Test Suite**: 100% test pass rate with regression coverage (`npm run test`).
-- [ ] **Clean Git Status**: All artifacts, tests, specs, and tokens committed cleanly.
+- [ ] **Test Suite**: 100% test pass rate with new coverage for added logic (`npm run test`).
+- [ ] **No Duplications**: Verified that no duplicate utilities or services were created.
+- [ ] **Clean Git Status**: All artifacts, tests, and configurations committed cleanly.
+
 

@@ -16,7 +16,7 @@ test("Rule sync engine synchronizes AGENTS.md across all target files", () => {
     const filePath = path.resolve(process.cwd(), target);
     assert.ok(fs.existsSync(filePath), `Target file ${target} must exist`);
     const content = fs.readFileSync(filePath, "utf8");
-    assert.ok(content.includes("Universal Vibe Coding Agent Constitution"));
+    assert.ok(content.includes("Universal Vibe Coding Code Quality Governance Constitution"));
     assert.ok(content.includes("Definition of Done"));
   }
 });
